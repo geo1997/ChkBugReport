@@ -28,6 +28,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.widget.Toast;
+import io.github.pixee.security.SystemCommand;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -155,7 +156,7 @@ public class TakeBugreportTask extends AsyncTask<Void, Void, Void> {
 
     private void exec(String ...cmd) {
         try {
-            Process proc = Runtime.getRuntime().exec(cmd);
+            Process proc = SystemCommand.runCommand(Runtime.getRuntime(), cmd);
             dump(proc.getInputStream());
         } catch (Throwable t) {
             t.printStackTrace();
