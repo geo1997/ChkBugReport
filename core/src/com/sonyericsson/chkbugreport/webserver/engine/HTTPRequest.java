@@ -18,6 +18,7 @@
  */
 package com.sonyericsson.chkbugreport.webserver.engine;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -126,7 +127,7 @@ public class HTTPRequest {
             mBR = new BufferedReader(mInput);
 
             // parse method uri and version
-            String line = mBR.readLine();
+            String line = BoundedLineReader.readLine(mBR, 5_000_000);
             if (line == null) {
                 System.err.println("First line empty");
                 return -1;
@@ -169,7 +170,7 @@ public class HTTPRequest {
 
             // process other lines
             while (true) {
-                line = mBR.readLine();
+                line = BoundedLineReader.readLine(mBR, 5_000_000);
                 if (line == null || line.length() == 0) {
                     // stop processing the headers
                     break;

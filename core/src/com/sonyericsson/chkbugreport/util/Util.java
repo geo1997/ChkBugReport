@@ -25,6 +25,7 @@ import com.sonyericsson.chkbugreport.PlatformUtil;
 import com.sonyericsson.chkbugreport.doc.Renderer;
 import com.sonyericsson.chkbugreport.ps.PSRecord;
 import com.sonyericsson.chkbugreport.webserver.engine.BufferedReader;
+import io.github.pixee.security.BoundedLineReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -739,7 +740,7 @@ public final class Util {
             InputStream is = Util.class.getResourceAsStream(PlatformUtil.ASSETS_ROOT + resName);
             BufferedReader br = new BufferedReader(is);
             String line;
-            while (null != (line = br.readLine())) {
+            while (null != (line = BoundedLineReader.readLine(br, 5_000_000))) {
                 r.println(line);
             }
             is.close();
