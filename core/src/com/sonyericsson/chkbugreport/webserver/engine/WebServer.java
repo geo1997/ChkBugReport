@@ -58,7 +58,7 @@ public class WebServer {
             String uriBase = req.getUriBase();
             resp.addHeader("Server", mName);
             // Routing
-            if (uriBase.equals(ROOT)) {
+            if (ROOT.equals(uriBase)) {
                 // Default root page requested
                 mApp.process(ROOT, ROOT, req, resp);
             } else if (uriBase.contains("$")) {

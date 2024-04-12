@@ -138,7 +138,7 @@ import java.util.regex.Pattern;
             if (!srcProc.equals(NO_PROC_NAME)) {
                 ret.setProcName(srcPid, srcProc, mBr);
             }
-            if (!dstProc.equals(NO_PROC_NAME)) {
+            if (!NO_PROC_NAME.equals(dstProc)) {
                 ret.setProcName(dstPid, dstProc, mBr);
             }
 

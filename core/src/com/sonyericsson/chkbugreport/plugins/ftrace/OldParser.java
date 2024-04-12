@@ -37,7 +37,7 @@ import com.sonyericsson.chkbugreport.Section;
         String buff = null;
         // Check that the correct tracer is selected
         buff = section.getLine(0);
-        if (!buff.equals("# tracer: sched_switch")) {
+        if (!"# tracer: sched_switch".equals(buff)) {
             mBr.printErr(3, FTracePlugin.TAG + "The context switch tracer is not selected!");
             return null;
         }
@@ -101,9 +101,9 @@ import com.sonyericsson.chkbugreport.Section;
             // Parse event: wakeup or switch
             int event = Const.UNKNOWN;
             s++;
-            if (buff.substring(s, s + 3).equals("  +")) {
+            if ("  +".equals(buff.substring(s, s + 3))) {
                 event = Const.WAKEUP;
-            } else if (buff.substring(s, s + 3).equals("==>")) {
+            } else if ("==>".equals(buff.substring(s, s + 3))) {
                 event = Const.SWITCH;
             }
             s += 3;

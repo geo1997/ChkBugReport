@@ -126,11 +126,11 @@ import java.util.Vector;
             this.logName = logName;
 
             // Find the log
-            if (logName.equals("event")) {
+            if ("event".equals(logName)) {
                 logs = (LogLines) mMod.getInfo(EventLogPlugin.INFO_ID_LOG);
-            } else if (logName.equals("system")) {
+            } else if ("system".equals(logName)) {
                 logs = (LogLines) mMod.getInfo(MainLogPlugin.INFO_ID_SYSTEMLOG);
-            } else if (logName.equals("main")) {
+            } else if ("main".equals(logName)) {
                 logs = (LogLines) mMod.getInfo(MainLogPlugin.INFO_ID_MAINLOG);
             }
             if (logs == null || logs.size() == 0) {

@@ -242,7 +242,7 @@ public class EventLogPlugin extends LogPlugin {
                 pid = Integer.parseInt(sl.fields[0]);
             } catch (NumberFormatException nfe) { /* NOP */ }
         }
-        int prio = type.equals("anr") ? Bug.PRIO_ANR_EVENT_LOG : Bug.PRIO_JAVA_CRASH_EVENT_LOG;
+        int prio = "anr".equals(type) ? Bug.PRIO_ANR_EVENT_LOG : Bug.PRIO_JAVA_CRASH_EVENT_LOG;
         Bug bug = new Bug(Bug.Type.PHONE_ERR, prio, sl.ts, msg);
         bug.setAttr(Bug.ATTR_FIRST_LINE, i);
         new Block(bug).add(new Link(sl.getAnchor(), "(link to log)"));
@@ -351,7 +351,7 @@ public class EventLogPlugin extends LogPlugin {
         try {
             int duration = 0, perc = 0;
             String name = null;
-            if (eventType.equals("dvm_lock_sample")) {
+            if ("dvm_lock_sample".equals(eventType)) {
                 // This is a bit different
                 duration = Integer.parseInt(sl.fields[fieldCount-2]);
                 perc = Integer.parseInt(sl.fields[fieldCount-1]);
@@ -364,7 +364,7 @@ public class EventLogPlugin extends LogPlugin {
             }
             SampleData sd = new SampleData(sl.ts, sl.pid, name, duration, perc, sl);
             addSampleData(eventType, sd);
-            if (eventType.equals("binder_sample")) {
+            if ("binder_sample".equals(eventType)) {
                 // These are interesting from the process point of view as well
                 name = sl.fields[3];
                 sd = new SampleData(sl.ts, sl.pid, name, duration, perc, sl);

@@ -16,7 +16,7 @@ public class Hooks {
         for (XMLNode item : hook) {
             String tag = item.getName();
             if (tag == null) continue;
-            if (tag.equals("logchart")) {
+            if ("logchart".equals(tag)) {
                 LogFilterChartPlugin logChart = LogFilterChartPlugin.parse(mod, item);
                 mPlugin.addBatteryLevelChartPlugin(logChart);
             } else {

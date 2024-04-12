@@ -107,11 +107,11 @@ public class LogFilterChartPlugin extends ChartPlugin {
         for (String log : lognames) {
             // Find the log
             LogLines logs = null;
-            if (log.equals("event")) {
+            if ("event".equals(log)) {
                 logs = (LogLines) mod.getInfo(EventLogPlugin.INFO_ID_LOG);
-            } else if (log.equals("system")) {
+            } else if ("system".equals(log)) {
                 logs = (LogLines) mod.getInfo(MainLogPlugin.INFO_ID_SYSTEMLOG);
-            } else if (log.equals("main")) {
+            } else if ("main".equals(log)) {
                 logs = (LogLines) mod.getInfo(MainLogPlugin.INFO_ID_MAINLOG);
             }
             if (logs == null || logs.size() == 0) {

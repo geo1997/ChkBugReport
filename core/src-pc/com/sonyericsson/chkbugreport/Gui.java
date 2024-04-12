@@ -257,7 +257,7 @@ import javax.swing.event.ChangeListener;
                 try {
                     path = (String) support.getTransferable().getTransferData(selDf);
                     URL url = new URL(path);
-                    if (url.getProtocol().equals("file")) {
+                    if ("file".equals(url.getProtocol())) {
                         loadFile(URLDecoder.decode(url.getPath(), "UTF-8"));
                         return true;
                     }

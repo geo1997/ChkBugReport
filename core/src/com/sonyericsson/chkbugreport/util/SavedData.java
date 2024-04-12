@@ -115,7 +115,7 @@ abstract public class SavedData<T> implements Iterable<T> {
     private void setLongField(Field f, T item, XMLNode node) throws Exception {
         String val = node.getAttr(f.getName());
         if (val != null) {
-            if (f.getType().getName().equals("int")) {
+            if ("int".equals(f.getType().getName())) {
                 f.setInt(item, Integer.parseInt(val));
             } else {
                 f.setLong(item, Long.parseLong(val));

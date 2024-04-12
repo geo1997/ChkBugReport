@@ -312,7 +312,7 @@ public class WindowManagerPlugin extends Plugin {
         // Count windows
         for (WindowManagerState.Window win : mWindowManagerState.windows) {
             String name = win.name;
-            if (name.equals("SurfaceView")) continue; // This can have many instances
+            if ("SurfaceView".equals(name)) continue; // This can have many instances
             WindowCount wc = counts.get(name);
             if (wc == null) {
                 wc = new WindowCount();
@@ -346,7 +346,7 @@ public class WindowManagerPlugin extends Plugin {
         // Mark duplicated windows
         for (WindowManagerState.Window win : mWindowManagerState.windows) {
             String name = win.name;
-            if (name.equals("SurfaceView")) continue; // This can have many instances
+            if ("SurfaceView".equals(name)) continue; // This can have many instances
             WindowCount wc = counts.get(name);
             if (wc.count > 1) {
                 win.warnings++;

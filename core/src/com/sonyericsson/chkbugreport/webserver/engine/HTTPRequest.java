@@ -153,7 +153,7 @@ public class HTTPRequest {
                 mUri = mUri.substring(1);
             }
 
-            if (!mMethod.equals("GET") && !mMethod.equals("HEAD") && !mMethod.equals("POST")) {
+            if (!"GET".equals(mMethod) && !"HEAD".equals(mMethod) && !"POST".equals(mMethod)) {
                 System.err.println("Only GET, HEAD and POST are (partially) supported!");
                 return -1;
             }
@@ -178,7 +178,7 @@ public class HTTPRequest {
             }
 
             // Check if we expect a body
-            if (mMethod.equals("POST")) {
+            if ("POST".equals(mMethod)) {
                 if ("application/x-www-form-urlencoded".equals(mHeaders.get("Content-Type"))) {
                     if (mHeaders.containsKey("Content-Length")) {
                         int size = Integer.parseInt(mHeaders.get("Content-Length"));

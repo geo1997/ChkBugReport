@@ -72,7 +72,7 @@ public class WakelocksPlugin extends Plugin {
             return;
         }
         String line = section.getLine(0);
-        if (line.equals("*** /proc/wakelocks: No such file or directory")) {
+        if ("*** /proc/wakelocks: No such file or directory".equals(line)) {
             br.printErr(3, TAG + "No data found in section: " + Section.KERNEL_WAKELOCKS + " (aborting plugin)");
             return;
         }

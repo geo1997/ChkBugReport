@@ -81,7 +81,7 @@ public class ChkBugReportWebServer implements WebApp {
     @Override
     public InputStream getResourceAsStream(String uri) {
         System.out.println("[FIL] " + uri);
-        if (uri.equals("favicon.ico")) {
+        if ("favicon.ico".equals(uri)) {
             return getClass().getResourceAsStream(PlatformUtil.ASSETS_ROOT + uri);
         }
         try {
@@ -96,7 +96,7 @@ public class ChkBugReportWebServer implements WebApp {
     @Override
     public void process(String clsRef, String metRef, HTTPRequest req, HTTPResponse resp) {
         System.out.println("[APP] " + clsRef + " / " + metRef);
-        if (clsRef.equals("")) {
+        if ("".equals(clsRef)) {
             mServer.serveFile("index.html", req, resp);
             return;
         }

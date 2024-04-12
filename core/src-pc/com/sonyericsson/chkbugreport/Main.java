@@ -125,10 +125,10 @@ public class Main implements OutputListener {
         }
 
         // Peek tha first argument, and select the module
-        if (args[0].equals("-t")) {
+        if ("-t".equals(args[0])) {
             first = 1;
             mMod = new TraceModule(mContext);
-        } else if (args[0].equals("-b")) {
+        } else if ("-b".equals(args[0])) {
             first = 1;
             mMod = new BugReportModule(mContext);
         } else {
