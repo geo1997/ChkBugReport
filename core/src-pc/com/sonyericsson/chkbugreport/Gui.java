@@ -23,6 +23,8 @@ import com.sonyericsson.chkbugreport.BugReportModule.SourceFile;
 import com.sonyericsson.chkbugreport.settings.BoolSetting;
 import com.sonyericsson.chkbugreport.settings.Setting;
 import com.sonyericsson.chkbugreport.settings.Settings;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
@@ -256,7 +258,7 @@ import javax.swing.event.ChangeListener;
                 String path;
                 try {
                     path = (String) support.getTransferable().getTransferData(selDf);
-                    URL url = new URL(path);
+                    URL url = Urls.create(path, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                     if (url.getProtocol().equals("file")) {
                         loadFile(URLDecoder.decode(url.getPath(), "UTF-8"));
                         return true;
