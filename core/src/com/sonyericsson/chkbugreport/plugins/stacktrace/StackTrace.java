@@ -81,7 +81,7 @@ public final class StackTrace implements Iterable<StackTraceItem> {
             setProperty(pair[0], pair[1]);
 
             // Handle some properties specially
-            if (pair[0].equals("sysTid")) {
+            if ("sysTid".equals(pair[0])) {
                 try {
                     mPid = Integer.parseInt(pair[1]);
                     if (mTid < 0) {

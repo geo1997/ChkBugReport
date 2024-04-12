@@ -57,7 +57,7 @@ public class Hooks {
         for (XMLNode item : hook) {
             String tag = item.getName();
             if (tag == null) continue;
-            if (tag.equals("filter")) {
+            if ("filter".equals(tag)) {
                 filterLog(mod, item);
             } else {
                 mod.printErr(5, "Unknown log hook: " + tag);
@@ -79,11 +79,11 @@ public class Hooks {
         for (XMLNode action : filter) {
             String tag = action.getName();
             if (tag == null) continue;
-            if (tag.equals("hide")) {
+            if ("hide".equals(tag)) {
                 ll.setHidden(true);
-            } else if (tag.equals("note")) {
+            } else if ("note".equals(tag)) {
                 addNote(mod, ll, action);
-            } else if (tag.equals("bug")) {
+            } else if ("bug".equals(tag)) {
                 addBug(mod, ll, action);
             } else {
                 mod.printErr(5, "Unknown log filter action: " + tag);

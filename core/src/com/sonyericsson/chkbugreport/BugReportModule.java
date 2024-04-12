@@ -245,7 +245,7 @@ public class BugReportModule extends Module {
                 buff = buff.substring(idx);
             }
 
-            if (buff.equals(SECTION_DIVIDER)) {
+            if (SECTION_DIVIDER.equals(buff)) {
                 // Another kind of marker
                 // Need to read the next line
                 String sectionName = br.readLine();

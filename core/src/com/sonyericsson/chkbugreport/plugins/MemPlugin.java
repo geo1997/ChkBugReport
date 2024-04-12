@@ -565,7 +565,7 @@ public class MemPlugin extends Plugin {
                 break; // no more lines to process
             }
 
-            if(line.trim().equals("")) {
+            if("".equals(line.trim())) {
                 continue; //Skip blank lines.
             }
 
@@ -601,19 +601,19 @@ public class MemPlugin extends Plugin {
                 pr.add(blk);
                 pr.suggestName(memInfo.name, 45);
 
-            } else if(line.trim().equals("Dalvik Details")) {
+            } else if("Dalvik Details".equals(line.trim())) {
                 mode = Mode.DALVIK;
                 memInfoLines.addln(line);
-            } else if(line.trim().equals("App Summary")) {
+            } else if("App Summary".equals(line.trim())) {
                 mode = Mode.SUMMARY;
                 memInfoLines.addln(line);
-            } else if(line.trim().equals("Objects")) {
+            } else if("Objects".equals(line.trim())) {
                 mode = Mode.OBJECTS;
                 memInfoLines.addln(line);
-            } else if(line.trim().equals("SQL")) {
+            } else if("SQL".equals(line.trim())) {
                 mode = Mode.SQL;
                 memInfoLines.addln(line);
-            } else if(line.trim().equals("DATABASES")) {
+            } else if("DATABASES".equals(line.trim())) {
                 mode = Mode.DATABASES;
                 memInfoLines.addln(line);
 
@@ -1067,7 +1067,7 @@ public class MemPlugin extends Plugin {
         int idxName = 4;
         int idxPid = 5;
 
-        if(header.group(1) != null && header.group(1).trim().equals("Swap")) {
+        if(header.group(1) != null && "Swap".equals(header.group(1).trim())) {
             idxSwap = 4;
             idxName++;
             idxPid++;

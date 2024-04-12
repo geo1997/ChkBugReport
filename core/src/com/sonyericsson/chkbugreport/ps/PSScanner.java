@@ -181,7 +181,7 @@ public class PSScanner {
             ret.put(pid, new PSRecord(pid, ppid, nice, pcy, name));
 
             // Check if we should create a ProcessRecord for this
-            if (pidZygote == -1 && name.equals("zygote")) {
+            if (pidZygote == -1 && "zygote".equals(name)) {
                 pidZygote = pid;
             }
             ProcessRecord pr = mBr.getProcessRecord(pid, true, false);

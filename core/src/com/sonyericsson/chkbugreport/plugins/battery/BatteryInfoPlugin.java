@@ -797,13 +797,13 @@ public class BatteryInfoPlugin extends Plugin {
     }
 
     private void addSignal(long ts, String name, String value) {
-        if (name.equals("status")) {
-            if (value.equals("charging")) {
+        if ("status".equals(name)) {
+            if ("charging".equals(value)) {
                 addSignal(ts, "charging", 1);
             } else {
                 addSignal(ts, "charging", 0);
             }
-        } else if (name.equals("data_conn")) {
+        } else if ("data_conn".equals(name)) {
             mConn.add(value);
             for (String c : mConn) {
                 addSignal(ts, c, value.equals(c) ? 1 : 0);
